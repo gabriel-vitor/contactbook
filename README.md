@@ -75,7 +75,11 @@ yarn dev
 ```
 php artisan serve
 ```
+### 8. Gerar Key
 
+```bash
+php artisan key:generate
+```
 ### Rotas
 
 Lista de Contatos: `GET /contacts` - Exibe a lista de contatos.
