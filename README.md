@@ -79,8 +79,13 @@ php artisan serve
 ### Rotas
 
 Lista de Contatos: GET /contacts - Exibe a lista de contatos.
+
 Formulário de Criação de Contato: GET /contacts/create - Exibe o formulário para adicionar um novo contato.
+
 Salvar Novo Contato: POST /contacts - Envia o formulário para criar um novo contato.
+
 Editar Contato: GET /contacts/{id}/edit - Exibe o formulário para editar um contato existente.
+
 Atualizar Contato: PUT /contacts/{id} - Envia o formulário para atualizar um contato existente.
+
 Excluir Contato: DELETE /contacts/{id} - Remove um contato existente.
