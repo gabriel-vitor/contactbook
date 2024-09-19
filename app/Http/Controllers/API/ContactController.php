@@ -8,47 +8,46 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    // Listar todos os contatos
     public function index()
     {
-        return Contact::all();
+        return response()->json(Contact::all());
     }
 
-    // Armazenar um novo contato
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'phone' => 'required',
-        ]);
-
-        return Contact::create($request->all());
+        $contact = Contact::create($request->all());
+        return response()->json($contact, 201);
     }
 
-    // Mostrar um contato específico (não utilizado, mas implementado para completar o resource controller)
-    public function show(Contact $contact)
+    public function show($id)
     {
-        return $contact;
+        $contact = Contact::find($id);
+        if ($contact) {
+            return response()->json($contact);
+        } else {
+            return response()->json(['message' => 'Contact not found'], 404);
+        }
     }
 
-    // Atualizar um contato
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'phone' => 'required',
-        ]);
-
-        $contact->update($request->all());
-
-        return $contact;
+        $contact = Contact::find($id);
+        if ($contact) {
+            $contact->update($request->all());
+            return response()->json($contact);
+        } else {
+            return response()->json(['message' => 'Contact not found'], 404);
+        }
     }
 
-    // Deletar um contato
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        $contact->delete();
-
-        return response()->noContent();
+        $contact = Contact::find($id);
+        if ($contact) {
+            $contact->delete();
+            return response()->json(['message' => 'Contact deleted']);
+        } else {
+            return response()->json(['message' => 'Contact not found'], 404);
+        }
     }
 }

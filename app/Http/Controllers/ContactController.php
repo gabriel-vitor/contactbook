@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    
     public function index()
     {
         $contacts = Contact::all();
@@ -21,40 +20,32 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'phone' => 'required',
-        ]);
-
-        Contact::create($request->all());
-
-        return redirect()->route('contacts.index')
-                         ->with('success', 'Contato criado com sucesso.');
+        $contact = Contact::create($request->all());
+        return redirect()->route('contacts.index')->with('success', 'Contato criado com sucesso!');
+    }
+    
+    public function show($id)
+    {
+        $contact = Contact::find($id);
+        return view('contacts.show', compact('contact'));
     }
 
-    public function edit(Contact $contact)
+    public function edit($id)
     {
+        $contact = Contact::find($id);
         return view('contacts.edit', compact('contact'));
     }
 
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'phone' => 'required',
-        ]);
-
+        $contact = Contact::find($id);
         $contact->update($request->all());
-
-        return redirect()->route('contacts.index')
-                         ->with('success', 'Contato atualizado com sucesso.');
+        return redirect()->route('contacts.index');
     }
 
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        $contact->delete();
-
-        return redirect()->route('contacts.index')
-                         ->with('success', 'Contato deletado com sucesso.');
+        Contact::destroy($id);
+        return redirect()->route('contacts.index');
     }
 }
