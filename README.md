@@ -32,13 +32,13 @@ composer install
 
 ### 3. Configurar o ambiente
 
-Copie o arquivo .env.example para .env e configure as variáveis de ambiente, como a conexão com o banco de dados:
+Copie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente, como a conexão com o banco de dados:
 
 ```bash
 cp .env.example .env
 ```
 
-Edite o arquivo .env com suas configurações de banco de dados
+Edite o arquivo `.env` com suas configurações de banco de dados
 
 ```bash
 DB_CONNECTION=mysql
@@ -78,14 +78,14 @@ php artisan serve
 
 ### Rotas
 
-Lista de Contatos: GET /contacts - Exibe a lista de contatos.
+Lista de Contatos: `GET /contacts` - Exibe a lista de contatos.
 
-Formulário de Criação de Contato: GET /contacts/create - Exibe o formulário para adicionar um novo contato.
+Formulário de Criação de Contato: `GET /contacts/create` - Exibe o formulário para adicionar um novo contato.
 
-Salvar Novo Contato: POST /contacts - Envia o formulário para criar um novo contato.
+Salvar Novo Contato: `POST /contacts` - Envia o formulário para criar um novo contato.
 
-Editar Contato: GET /contacts/{id}/edit - Exibe o formulário para editar um contato existente.
+Editar Contato: `GET /contacts/{id}/edit` - Exibe o formulário para editar um contato existente.
 
-Atualizar Contato: PUT /contacts/{id} - Envia o formulário para atualizar um contato existente.
+Atualizar Contato: `PUT /contacts/{id}` - Envia o formulário para atualizar um contato existente.
 
-Excluir Contato: DELETE /contacts/{id} - Remove um contato existente.
+Excluir Contato: `DELETE /contacts/{id}` - Remove um contato existente.
