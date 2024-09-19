@@ -20,9 +20,15 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        $contact = Contact::create($request->all());
-        return redirect()->route('contacts.index')->with('success', 'Contato criado com sucesso!');
+    $request->validate([
+        'name' => 'required|max:255',
+        'phone' => 'required|max:20',
+    ]);
+
+    Contact::create($request->all());
+    return redirect()->route('contacts.index')->with('success', 'Contato adicionado com sucesso!');
     }
+
     
     public function show($id)
     {
