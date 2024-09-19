@@ -9,4 +9,11 @@
 <body id="app">
     @yield('content')
 </body>
+
+<body id="app">
+    @yield('content')
+    <!-- Scripts -->
+    <script src="{{ mix('js/app.js') }}"></script>
+</body>
+
 </html>
