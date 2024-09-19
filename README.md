@@ -70,16 +70,17 @@ npm run dev
 # ou
 yarn dev
 ```
-
-### 7. Executar o servidor
-```
-php artisan serve
-```
-### 8. Gerar Key
+### 7. Gerar Key
 
 ```bash
 php artisan key:generate
 ```
+
+### 8. Executar o servidor
+```
+php artisan serve
+```
+
 ### Rotas
 
 Lista de Contatos: `GET /contacts` - Exibe a lista de contatos.
