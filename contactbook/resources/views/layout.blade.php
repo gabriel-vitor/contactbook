@@ -6,14 +6,7 @@
     <title>Agenda</title>
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 </head>
-<body id="app">
+<body>
     @yield('content')
 </body>
-
-<body id="app">
-    @yield('content')
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"></script>
-</body>
-
 </html>
